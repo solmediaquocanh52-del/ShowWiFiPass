@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>label</key>
+		<string>ShowWiFiPass</string>
+	</dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Hiện mật khẩu Wi-Fi</string>
+			<key>footerText</key>
+			<string>Thêm nút con mắt vào ô nhập mật khẩu Wi-Fi. Không cần respring, áp dụng ở lần nhập tiếp theo.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>defaults</key>
+			<string>com.vn.showwifipass</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>default</key>
+			<true/>
+			<key>label</key>
+			<string>Bật tweak</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>defaults</key>
+			<string>com.vn.showwifipass</string>
+			<key>key</key>
+			<string>defaultVisible</string>
+			<key>default</key>
+			<false/>
+			<key>label</key>
+			<string>Mặc định hiện mật khẩu</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Dùng khi nút con mắt không hiện ở ô Wi-Fi: áp dụng cho mọi ô mật khẩu trong app Cài đặt (gồm cả mật khẩu khác như Apple ID).</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>defaults</key>
+			<string>com.vn.showwifipass</string>
+			<key>key</key>
+			<string>allSecure</string>
+			<key>default</key>
+			<false/>
+			<key>label</key>
+			<string>Áp dụng mọi ô mật khẩu trong Cài đặt</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>defaults</key>
+			<string>com.vn.showwifipass</string>
+			<key>key</key>
+			<string>debug</string>
+			<key>default</key>
+			<false/>
+			<key>label</key>
+			<string>Ghi log debug (NSLog)</string>
+		</dict>
+	</array>
+</dict>
+</plist>

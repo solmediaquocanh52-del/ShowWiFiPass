@@ -1,0 +1,9 @@
+Package: com.vn.showwifipass
+Name: ShowWiFiPass
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Thêm nút con mắt hiện/ẩn mật khẩu khi nhập Wi-Fi (giống Android)
+Maintainer: you
+Author: you
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0)
