@@ -6,4 +6,4 @@ Description: Thêm nút con mắt hiện/ẩn mật khẩu khi nhập Wi-Fi (gi�
 Maintainer: you
 Author: you
 Section: Tweaks
-Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0)
+Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0)
