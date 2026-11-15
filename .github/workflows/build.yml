@@ -1,0 +1,37 @@
+name: Build debs
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: brew install ldid dpkg make xz
+      - name: Setup Theos (rootful + rootless)
+        run: |
+          git clone --recursive --depth=1 https://github.com/theos/theos.git $HOME/theos
+          git clone --depth=1 https://github.com/theos/sdks.git /tmp/sdks
+          cp -R /tmp/sdks/*.sdk $HOME/theos/sdks/
+      - name: Setup Theos (roothide fork)
+        run: |
+          git clone --recursive --depth=1 https://github.com/roothide/theos.git $HOME/theos-roothide
+          cp -R /tmp/sdks/*.sdk $HOME/theos-roothide/sdks/
+      - name: Build rootful
+        run: |
+          export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
+          export THEOS=$HOME/theos
+          make clean package FINALPACKAGE=1
+      - name: Build rootless
+        run: |
+          export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
+          export THEOS=$HOME/theos
+          make clean package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
+      - name: Build roothide
+        run: |
+          export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
+          export THEOS=$HOME/theos-roothide
+          make clean package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=roothide
+      - uses: actions/upload-artifact@v4
+        with:
+          name: debs
+          path: packages/*.deb
